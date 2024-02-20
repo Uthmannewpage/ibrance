@@ -40,19 +40,6 @@
   /* nav height */
   --nav-height: 64px;
 }
-body {
-  display: flex;
-}
-
-.sidebar {
-  width: 25%;
-  background-color: #f4f4f4;
-}
-
-.main-content {
-  width: 75%;
-  padding: 20px;
-}
 
 @font-face {
   font-family: roboto-fallback;

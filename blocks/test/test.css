@@ -1,0 +1,54 @@
+main {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+main > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.test {
+    background-color: var(--background-color);
+    margin: 16px;
+    margin-left: 200px;
+}
+
+.test > div {
+    display: flex;
+    align-items: center;
+    margin-right: 400px; /* Add margin-bottom property */
+}
+
+.test > div > * {
+    margin-right: 16px;
+}
+
+.test > div > *:last-child {
+    margin-right: 0;
+}
+
+.test > * {
+    flex: 1;
+}
+
+.test > *:last-child {
+    margin-right: 0;
+}
+
+.test img {
+    max-width: 150px; /* Set max-width to 150px */
+    max-height: 100px; /* Set max-height to 100px */
+}
+
+.test strong u {
+    font-size: 14px; /* Set font size to 14 */
+    color: #696869; /* Set font color to grey */
+}
+
+.test picture img {
+    width: 150px; /* Set image width to 150 */
+    height: 100px; /* Set image height to 100 */
+}

@@ -1,0 +1,36 @@
+.columns1 > div {
+    display: flex;
+    margin-left: 200px;
+    flex-direction: column;
+  }
+  
+  .columns1 img {
+    max-width: 160px; /* Add this line */
+    max-height: 200px; /* Add this line */
+  }
+  
+  .columns1 > div > div {
+    order: 1;
+  }
+  
+  .columns1 > div > .columns-img-col {
+    order: 0;
+  }
+  
+  .columns1 > div > .columns-img-col img {
+    display: block;
+  }
+  
+  @media (min-width: 900px) {
+    .columns1 > div {
+     
+      flex-direction: row; /* Change to row */
+      gap: 32px;
+    }
+  
+    .columns1 > div > div {
+      flex-grow: 1; /* Add this line */
+      order: unset;
+    }
+  }
+  

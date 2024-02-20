@@ -1,0 +1,16 @@
+.middle-text {
+    text-align: left; /* Align text to the left */
+    margin-left: -230px; /* Move the entire block 10px to the left */
+    margin-left: 200px;
+  }
+  
+  .middle-text p {
+    font-size: 24px; /* Set font size to 18px */
+    color: rgb(79, 78, 78); /* Set text color to gray */
+  }
+  
+  .middle-text p a {
+    color: limegreen; /* Set text color to lime green */
+    text-decoration: underline; /* Add default underline */
+  }
+  
