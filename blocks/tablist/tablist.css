@@ -3,71 +3,13 @@
     align-items: stretch; /* Stretch items to fill the container vertically */
     flex-direction: row; /* Display items side by side */
     margin-left: 200px;
-  }
-  
-  .tablist > div > div {
-    width: 350px; /* Stretch to fill the container horizontally */
+}
+
+.tablist > div > div {
+    flex-grow: 1; /* Take up equal space */
     height: 50px;
     padding: 20px;
-    cursor: pointer;.tablist {
-        display: flex;
-        align-items: stretch; /* Stretch items to fill the container vertically */
-        flex-direction: row; /* Display items side by side */
-      }
-      
-      .tablist > div > div {
-        width: 100%; /* Stretch to fill the container horizontally */
-        height: 50px;
-        padding: 20px;
-        cursor: pointer;
-        border: 1px solid #ccc;
-        border-radius: 0px;
-        margin-left: -1px;
-        font-size: 20px; /* Reduce font size */
-        transition: background-color 0.3s, color 0.3s;
-        display: inline-block;
-        position: relative;
-        background-color: #f0f0f0; /* Greyish background color */
-        color: #333; /* Dark grey font color */
-        text-align: center; /* Align text to center */
-      }
-      
-      .tablist > div > div:hover {
-        background-color: #ccc;
-        color: #430098;
-      }
-      
-      .tablist > div > div.active {
-        background-color: #ccc;
-        color: #430098;
-        text-decoration: line-through;
-      }
-      
-      .tablist > div > div.active::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: #430098;
-      }
-      
-      .tablist > div > div::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: transparent;
-        transition: background-color 0.3s;
-      }
-      
-      .tablist > div > div.active::after {
-        background-color: #430098;
-      }
-      
+    cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 0px;
     margin-left: -1px;
@@ -78,20 +20,19 @@
     background-color: #f0f0f0; /* Greyish background color */
     color: #333; /* Dark grey font color */
     text-align: center; /* Align text to center */
-  }
-  
-  .tablist > div > div:hover {
+}
+
+.tablist > div > div:hover {
     background-color: #ccc;
     color: #430098;
-  }
-  
-  .tablist > div > div.active {
+}
+
+.tablist > div > div.active {
     background-color: #ccc;
     color: #430098;
-    text-decoration: line-through;
-  }
-  
-  .tablist > div > div.active::before {
+}
+
+.tablist > div > div.active::before {
     content: "";
     position: absolute;
     top: 0;
@@ -99,5 +40,40 @@
     width: 100%;
     height: 4px;
     background-color: #430098;
-  }
-  
+}
+
+.tablist div > div {
+    width: 100%; /* Change to 100% */
+}
+
+.tablist div {
+    display: flex;
+}
+
+.tablist > div > div::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.tablist > div > div.active::after {
+    background-color: #430098;
+}
+
+@media (max-width: 899px) {
+    .tablist {
+        margin-left: 0;
+    }
+    
+    .tablist > div > div {
+        font-size: 13px; 
+    }
+}
+.tablist{
+    display: none;
+}

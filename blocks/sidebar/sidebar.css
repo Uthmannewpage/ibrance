@@ -1,29 +1,192 @@
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 300px; /* Adjust width as needed */
-    overflow-y: auto; /* Add scrollbar when content exceeds height */
-    padding: 20px;
-    background-color: #f4f4f4; /* Change background color as needed */
+  position: fixed;
+  top: 0;
+  left: -25%; /* Hide sidebar by default */
+  bottom: 0;
+  width: 25%;
+  max-width: 300px;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  transition: left 0.3s ease-in-out; /* Change transition timing */
+}
+
+.sidebar.active {
+  left: 0; /* Make sidebar visible when active class is applied */
+}
+
+
+.sidebar h1 {
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sidebar h2 {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.sidebar p {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.sidebar div:last-child picture {
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidebar div:last-child picture {
+    width: 100%; 
+    max-width: 100%; 
   }
-  
-  /* Optional: Add styling for the content within the sidebar */
-  .sidebar h1 {
-    color: rgb(0, 0, 0);
-    font-size: 15;
-    margin-bottom: 10px;
+}
+
+.sidebar img {
+  max-width: 50%; /* Set maximum width for images */
+  height: auto;
+  margin-bottom: 20px;
+}
+.sidebar button {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: left;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+.sidebar button:focus {
+  outline: none;
+}
+
+.sidebar a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.active {
+  background-color: #ffffff;
+}
+
+#sidebarToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+#sidebarToggle {
+  background-color: #9a4aef; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.sidebar div div h3#live-support,
+.sidebar div div h3[id="844-9-ibrance"] {
+  color: #7349a8;
+  font-size: 18px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidebar div div h3#live-support,
+  .sidebar div div h3[id="844-9-ibrance"] {
+    text-align: left;
   }
-  
-  .sidebar p {
-    margin-bottom: 20px;
-    font-size: 10px;
+}
+
+.sidebar div div h4#full-prescribing-information,
+.sidebar div div h4#patient-information,
+.sidebar div div h4#use,
+.sidebar div div h4#important-safety-information,
+.sidebar div div h4#healthcare-professionals,
+.sidebar div div h4#español {
+  color: #333333;
+  font-size: 18px;
+  text-align: left;
+  position: relative;
+}
+
+.sidebar div div h4#full-prescribing-information::before,
+.sidebar div div h4#patient-information::before,
+.sidebar div div h4#use::before,
+.sidebar div div h4#important-safety-information::before,
+.sidebar div div h4#healthcare-professionals::before,
+.sidebar div div h4#español::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #430098;
+}
+
+.sidebar div div h4#full-prescribing-information:hover,
+.sidebar div div h4#patient-information:hover,
+.sidebar div div h4#use:hover,
+.sidebar div div h4#important-safety-information:hover,
+.sidebar div div h4#healthcare-professionals:hover,
+.sidebar div div h4#español:hover {
+  text-decoration: underline;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .sidebar {
+    left: -100%; /* Hide sidebar by default on mobile */
+    width: 100%; /* Cover the entire page when opened on mobile */
+    max-width: none; 
+    
   }
-  
+
+  .sidebar.active {
+    left: 0; /* Make sidebar visible when active class is applied */
+  }
+
+  #sidebarToggle {
+    display: block; /* Display sidebar toggle button on mobile */
+  }
+
   .sidebar img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    max-width: 80%; /* Set maximum width for images */
+    margin-left: auto; /* Center images */
+    margin-right: auto; /* Center images */
   }
-  
+}
+
+.sidebar > div:nth-child(16) {
+  display: none;
+}
+
+.sidebar > div:nth-child(18) {
+  display: none;
+}
+
+.sidebar > div:nth-child(20) {
+  display: none;
+}
+
+

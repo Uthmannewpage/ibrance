@@ -2,12 +2,17 @@
     text-align: left; /* Align text to the left */
     margin-left: -230px; /* Move the entire block 10px to the left */
     margin-left: 200px;
-    
-  }
-.middle-h1 {
     font-size: 45px; /* Set font size to 25px */
     color: purple; /* Set text color to purple */
     font-weight: bold;
-  }
-  
-  
+}
+
+@media (max-width: 599px) {
+    .middle-h1 {
+        text-align: center; /* Align text to the center */
+        font-size: 25px; /* Adjusted font size for smaller screens */
+        color: purple; /* Set text color to purple */
+        font-weight: bold;
+        margin-left: 0; /* Reset left margin */
+    }
+}

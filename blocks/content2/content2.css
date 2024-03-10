@@ -2,10 +2,19 @@
     color: rgb(87, 87, 87);
     font-size: 18px;
     margin-left: 200px;
-  }
-  
-  .content2 img {
+}
+
+.content2 img {
     display: block;
     margin: 0 auto;
-  }
-  
+}
+
+@media (max-width: 899px) {
+    .content2 {
+        margin-left: 0; /* Change to zero */
+    }
+}
+/* Hide all content sections by default */
+.content2 {
+    display: none;
+}

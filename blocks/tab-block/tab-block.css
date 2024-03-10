@@ -1,0 +1,206 @@
+.tab-block {
+  margin-left: 300px;
+  width: 1150px;
+}
+
+.tab-block > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tab-block > div:first-child > div {
+  width: 500px;
+  height: 50px;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 0px;
+  margin-left: 2px;
+  font-size: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+  position: relative;
+  background-color: #e5e5e5;
+  color: #636363;
+  text-align: center;
+  font-weight: bold;
+}
+
+.tab-block > div:first-child > div:hover {
+  background-color: #f5f5f5;
+  color: #7349a8;
+}
+
+.tab-block > div:first-child > div.active {
+  background-color: #ccc;
+  color: #7349a8;
+}
+
+.tab-block > div:first-child > div.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #430098;
+}
+
+.tab-block > div:first-child > div::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.tab-block > div:first-child > div.active::after {
+  background-color: #430098;
+}
+
+.tab-block > div:nth-child(2) > div {
+  margin-top: -19px;
+  padding: 20px;
+}
+
+.tab-block > div:nth-child(2) > div.active {
+  display: block;
+}
+
+.tab-block > div:nth-child(2) > div {
+  display: none;
+}
+
+.tab-block > div:nth-child(2) > div.active {
+  display: block;
+  background-color: #f0f0f0;
+}
+
+.tab-block > div > div > h2 {
+  color: #7349a8;
+}
+
+#co-pay-assistance {
+  color: #430098;
+}
+
+.tab-block > div > div > p,
+.tab-block > div > div > ul > li {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.tab-block > div > div > div > p {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.tab-block > div > div > div > div > p {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.tab-block > div:first-child > div > div {
+  display: flex;
+  align-items: center;
+}
+
+.tab-block > div:first-child > div > div > picture {
+  margin-right: 20px;
+}
+
+.tab-block > div > div > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.tab-block > div > div > div > h2 {
+  grid-column: 1 / 2;
+}
+
+.tab-block > div > div > div > p {
+  grid-column: 1 / 2;
+}
+
+.tab-block > div > div > div > div > p {
+  grid-column: 2 / 2;
+}
+
+.tab-block > div > div > div > p > p {
+  grid-column: 2 / 2;
+}
+
+.tab-block > div > div > div > picture {
+  grid-column: 1 / 2;
+  grid-row: 2 / 4;
+  width: 500px;
+  height: auto;
+}
+
+.tab-block > div > div > div > div {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tab-block > div > div > div > div > h2 {
+  margin-top: 0;
+}
+
+.tab-block > div > div > div > div > p {
+  margin-bottom: 0;
+}
+
+.tab-block > div > div > div > div > p:nth-of-type(2) {
+  margin-top: 0;
+}
+
+.tab-block > div > div > div > div.with-image > p:nth-child(2) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+  margin-top: 0;
+}
+
+.tab-block img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .tab-block {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .tab-block > div:first-child {
+    flex-direction: column;
+  }
+
+  .tab-block > div:first-child > div {
+    width: 100%;
+  }
+
+  .tab-block > div:nth-child(2) > div {
+    margin-top: 0;
+  }
+
+  .tab-block > div > div > div {
+    display: block;
+    width: 100%;
+  }
+
+  .tab-block > div > div > div > picture {
+    display: none;
+  }
+
+  .tab-block > div > div > div > div {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

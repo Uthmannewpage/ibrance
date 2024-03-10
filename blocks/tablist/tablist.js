@@ -1,49 +1,43 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Get the tablist container
-    const tablist = document.querySelector('.tablist');
+// Define the function to create buttons
+function createButtons() {
+    // Create buttons
+    const commerciallyInsuredButton = document.createElement('button');
+    commerciallyInsuredButton.textContent = 'Commercially Insured';
+    commerciallyInsuredButton.onclick = function() {
+      alert('Commercially Insured Button Clicked!');
+    };
   
-    // Get the first div in tablist
-    const firstDiv = tablist.querySelector('div > div:first-child');
+    const medicareOrGovernmentInsuredButton = document.createElement('button');
+    medicareOrGovernmentInsuredButton.textContent = 'Medicare Or Government Insured';
+    medicareOrGovernmentInsuredButton.onclick = function() {
+      alert('Medicare Or Government Insured Button Clicked!');
+    };
   
-    // Set data-content-id attribute to "content2" for the first div
-    firstDiv.setAttribute('data-content-id', 'content2');
+    const uninsuredButton = document.createElement('button');
+    uninsuredButton.textContent = 'Uninsured';
+    uninsuredButton.onclick = function() {
+      alert('Uninsured Button Clicked!');
+    };
   
-    // Get all the content blocks
-    const contentBlocks = document.querySelectorAll('.content');
+    // Append buttons to their respective divs
+    document.getElementById('commercially-insured').appendChild(commerciallyInsuredButton);
+    document.getElementById('medicare-or-government-insured').appendChild(medicareOrGovernmentInsuredButton);
+    document.getElementById('uninsured').appendChild(uninsuredButton);
+  }
   
-    // Get all the tab buttons
-    const tabButtons = tablist.querySelectorAll('button');
-  
-    // Add click event listeners to each tab button
-    tabButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        // Remove the active class from all content blocks
-        contentBlocks.forEach(block => {
-          block.classList.remove('active');
-        });
-  
-        // Add the active class to the content block corresponding to the clicked button
-        contentBlocks[index].classList.add('active');
-      });
+  // Call the function to create buttons when the window has loaded
+  window.onload = createButtons;
+
+// Add event listeners to tablist buttons
+document.querySelectorAll('.tablist > div > div').forEach((button, index) => {
+    button.addEventListener('click', () => {
+        // Remove 'active' class from all buttons
+        document.querySelectorAll('.tablist > div > div').forEach(btn => btn.classList.remove('active'));
+        // Add 'active' class to clicked button
+        button.classList.add('active');
+        // Hide all content sections
+        document.querySelectorAll('.content-section').forEach(section => section.style.display = 'none');
+        // Show the content section corresponding to the clicked button
+        document.getElementById(`content${index + 1}`).style.display = 'block';
     });
-  
-    // Get the first div in tablist again after adding data-content-id
-    const updatedFirstDiv = tablist.querySelector('div > div:first-child');
-  
-    // Add click event listener to the updated first div
-    updatedFirstDiv.addEventListener("click", function () {
-      // Remove active class from all tabs
-      tabButtons.forEach((button) => button.classList.remove("active"));
-  
-      // Add active class to the clicked button
-      updatedFirstDiv.classList.add("active");
-  
-      // Hide all content
-      contentBlocks.forEach((content) => content.style.display = "none");
-  
-      // Show the content corresponding to the clicked tab
-      const contentId = updatedFirstDiv.dataset.contentId;
-      document.getElementById(contentId).style.display = "block";
-    });
-  });
-  
+});

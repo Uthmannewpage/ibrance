@@ -13,3 +13,9 @@ footer .footer {
 footer .footer p {
   margin: 0;
 }
+
+@media (max-width: 899px) {
+    footer {
+        margin-left: 0; /* Change to zero */
+    }
+}

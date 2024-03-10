@@ -1,13 +1,14 @@
-.footer-rows{
-    margin-left: 200px;
-  
-
+.footer-rows {
+  margin-left: 200px;
 }
 
 .footer-rows > div > div {
   color: rgb(28, 28, 28);
   font-size: 13px;
-  
-  
+}
 
+@media (max-width: 899px) {
+  .footer-rows {
+      margin-left: 0; /* Change to zero */
+  }
 }

@@ -1,11 +1,19 @@
 .purple-banner {
-    background-color: #7349a8 ; /* Set background color to purple */
-    color: white; /* Set text color to white */
-    font-size: 25px; /* Set font size to 30px */
-    font-weight: bold; /* Set font weight to bold */
-    text-align: center;
-    margin-left: -530px;
-    width: 2200px; /* Set the width to 100% to span the entire page */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  background-color: #7349a8; /* Set background color to purple */
+  color: white; /* Set text color to white */
+  font-size: 25px; /* Set font size to 30px */
+  font-weight: bold; /* Set font weight to bold */
+  text-align: center;
+  width: 300%; /* Set the width to 90% */
+  max-width: 600px; /* Limit the maximum width on larger screens */
+  margin: 0 auto; /* Center the banner horizontally */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  padding: 20px; /* Add padding */
+}
+
+@media (max-width: 899px) {
+  .purple-banner {
+    width: 100%; /* Set the width to 100% on smaller screens */
+    max-width: none; /* Remove the maximum width limit on smaller screens */
   }
-  
+}

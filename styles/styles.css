@@ -15,7 +15,7 @@
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
   --background-color: white;
-  --light-color: #eee;
+  --light-color: #000000;
   --dark-color: #ccc;
   --text-color: black;
 
@@ -220,4 +220,25 @@ main .section {
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+.sidebar {
+  width: 25%;
+  background-color: #f4f4f4;
+}
+
+.main-content {
+  width: 75%;
+  padding: 20px;
+}
+
+@media (max-width: 899px) {
+  .sidebar {
+    width: 100%; /* Change to 100% */
+    margin-bottom: 20px; /* Add margin-bottom */
+  }
+
+  .main-content {
+    width: 100%; /* Change to 100% */
+  }
 }

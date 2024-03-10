@@ -1,0 +1,126 @@
+.support-block {
+  display: flex;
+  background-color: lightblue;
+  height: 100px;
+  width: 1000px;
+  margin-left: 175px;
+  position: relative;
+}
+
+/* Styling the image */
+.support-block picture {
+  position: absolute;
+  top: -20px;
+  left: -40px;
+}
+
+/* Styling the content */
+.support-block > div {
+  flex: 1;
+  padding: 0px;
+}
+
+.support-block a {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(57, 127, 151) !important;
+  color: rgb(255, 255, 255) !important;
+  text-decoration: none !important;
+  border: none !important;
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  right: -50px;
+  top: 35%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  text-align: center;
+  line-height: 80px;
+  font-weight: bold;
+  border-radius: 0; /* Square edges */
+}
+
+/* Resetting margins for heading and paragraphs */
+.support-block h1, .support-block p {
+  margin: 0;
+  color: #124e76;
+}
+
+/* Adjusting text alignment */
+.support-block p {
+  position: relative;
+  left: -40px; /* Shift the text 40px to the left */
+}
+
+/* Styling the content */
+.support-block > div > div {
+  margin-left: -120px; /* Shift the text 40px to the left */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .support-block {
+    width: calc(100% - 40px); /* Adjust width for smaller screens */
+    margin-left: 0; /* Remove left margin */
+    height: auto; /* Allow height to adjust based on content */
+    flex-direction: column; /* Change to column layout */
+    align-items: center; /* Center content horizontally */
+  }
+
+  .support-block picture {
+    position: relative; /* Remove absolute positioning */
+    top: 0;
+    left: 0;
+    margin-bottom: 10px; /* Add spacing between image and text */
+  }
+
+  .support-block > div {
+    padding: 10px; /* Add padding for spacing */
+  }
+
+  .support-block a {
+    position: static; /* Remove absolute positioning */
+    margin-top: 10px; /* Add spacing between button and text */
+    width: auto; /* Allow button width to adjust based on content */
+    height: auto; /* Allow button height to adjust based on content */
+    transform: none; /* Reset transform */
+  }
+
+  .support-block > div > div {
+    margin-left: 0; /* Reset left margin */
+  }
+
+  .support-block p strong {
+    text-align: center; /* Center align text */
+    left: 0; /* Reset left positioning */
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 599px) {
+  .support-block {
+      width: calc(100% - 40px); /* Adjust width for smaller screens */
+      margin-left: 20px; /* Adjusted left margin for smaller screens */
+      flex-direction: column; /* Change to column layout */
+      align-items: center; /* Center content horizontally */
+      height: auto; /* Allow height to adjust based on content */
+  }
+
+  .support-block picture {
+      margin-bottom: 10px; 
+  }
+
+  .support-block > div {
+      padding: 10px;
+      text-align: center; 
+  }
+
+  .support-block a {
+      position: static; 
+      margin-top: 10px;
+      width: auto; 
+      height: auto; 
+      transform: none; 
+  }
+}
+

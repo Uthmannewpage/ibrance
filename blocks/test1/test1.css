@@ -9,49 +9,51 @@ main > div {
     flex-wrap: wrap;
 }
 
-.test {
+.test1 {
     background-color: var(--background-color);
     margin: 16px;
+    display: inline-block; /* Add display: inline-block; */
 }
 
-.test > div {
+.test1 > div {
     display: flex;
     align-items: center;
-    margin-left: 270px; /* Add margin-bottom property */
+    margin-left: 10px; /* Add margin-bottom property */
 }
 
-.test > div > * {
+.test1 > div > * {
     margin-right: 16px;
 }
 
-.test > div > *:last-child {
+.test1 > div > *:last-child {
     margin-right: 0;
 }
 
-.test > * {
+.test1 > * {
     flex: 1;
 }
 
-.test > *:last-child {
+.test1 > *:last-child {
     margin-right: 0;
 }
 
-.test img {
-    width: 100%;
+.test1 img {
+    max-width: 150px; /* Set max-width to 150px */
+    max-height: 100px; /* Set max-height to 100px */
 }
 
-.test strong u {
+.test1 strong u {
     font-size: 14px; /* Set font size to 14 */
     color: #696869; /* Set font color to grey */
 }
 
-.test picture img {
+.test1 picture img {
     width: 150px; /* Set image width to 150 */
     height: 100px; /* Set image height to 100 */
 }
 
 @media (max-width: 899px) {
-    .test {
+    .test1 {
         margin-left: 0; /* Change to zero */
     }
 }
