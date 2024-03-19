@@ -153,40 +153,70 @@
   text-decoration: underline;
 }
 
-/* Media query for mobile devices */
-@media (max-width: 768px) {
+.sidebar div div h4::before {
+  display: none; /* Hide the line before headings on smaller screens */
+}
+
+.sidebar > div:nth-child(16),
+.sidebar > div:nth-child(18),
+.sidebar > div:nth-child(20) {
+  display: none; /* Hide specific elements on smaller screens */
+}
+
+
+/* Additional CSS for the sidebar for mobile responsiveness */
+@media only screen and (max-width: 600px) {
   .sidebar {
-    left: -100%; /* Hide sidebar by default on mobile */
-    width: 100%; /* Cover the entire page when opened on mobile */
-    max-width: none; 
-    
+    top: -100%; /* Hide sidebar by default on mobile */
+    left: 0;
+    bottom: initial;
+    width: 100%; /* Cover the entire width when opened on mobile */
+    max-width: none;
+    overflow-y: auto;
+    transition: top 0.3s ease-in-out; /* Change transition timing */
   }
 
   .sidebar.active {
-    left: 0; /* Make sidebar visible when active class is applied */
+    top: 0; /* Make sidebar visible when active class is applied */
   }
 
-  #sidebarToggle {
-    display: block; /* Display sidebar toggle button on mobile */
+
+  .sidebar h1,
+  .sidebar h2,
+  .sidebar h3,
+  .sidebar h4,
+  .sidebar p {
+    font-size: 14px; 
+    margin-bottom: 10px;
   }
 
-  .sidebar img {
-    max-width: 80%; /* Set maximum width for images */
-    margin-left: auto; /* Center images */
-    margin-right: auto; /* Center images */
+  .sidebar div:last-child picture {
+    width: 100%; /* Set width of last picture to 100% */
+  }
+
+  .sidebar button {
+    font-size: 16px; /* Decrease font size for buttons on smaller screens */
+    padding: 8px 16px; /* Adjust padding for buttons */
+  }
+
+  .sidebar div div h3#live-support,
+  .sidebar div div h3[id="844-9-ibrance"] {
+    text-align: left; /* Align support contact information to the left */
+  }
+
+  .sidebar div div h4 {
+    text-align: left; /* Align headings to the left */
+    position: static; /* Remove absolute positioning */
+  }
+
+  .sidebar div div h4::before {
+    display: none; /* Hide the line before headings on smaller screens */
+  }
+
+  .sidebar > div:nth-child(16),
+  .sidebar > div:nth-child(18),
+  .sidebar > div:nth-child(20) {
+    display: none; /* Hide specific elements on smaller screens */
   }
 }
-
-.sidebar > div:nth-child(16) {
-  display: none;
-}
-
-.sidebar > div:nth-child(18) {
-  display: none;
-}
-
-.sidebar > div:nth-child(20) {
-  display: none;
-}
-
 

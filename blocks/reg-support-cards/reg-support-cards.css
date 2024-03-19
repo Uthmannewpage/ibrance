@@ -1,0 +1,90 @@
+.reg-support-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 200px;
+}
+
+.reg-support-cards > div {
+    position: relative;
+    flex: 1;
+    border: 4px solid #430098;
+    border-radius: 10px;
+    margin-right: 15px;
+    padding: 20px;
+}
+
+.reg-support-cards > div > div:first-child {
+    color: #430098;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reg-support-cards h1 {
+    font-size:50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.reg-support-cards h1::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: translateY(-150%);
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-width: 3px 3px 3px 3px;
+    transition: border-color 0.3s ease;
+}
+
+.reg-support-cards h1.checked::before {
+    border-color: #430098;
+}
+
+.reg-support-cards h1.checked::after {
+    content: '';
+    position: absolute;
+    top: 3px; 
+    right: 20px; 
+    width: 12px;
+    height: 12px;
+    border-style: solid;
+    border-width: 0 2px 1px 0;
+    transform: rotate(45deg);
+    transition: border-color 0.3s ease;
+    border-color: #430098;
+}
+
+.reg-support-cards h1.checked {
+    color: #430098;
+}
+
+/* Add hover effect */
+.reg-support-cards h1:hover::before {
+    border-color: #8e44ad;
+}
+
+.reg-support-cards h1:hover.checked::before {
+    border-color: #8e44ad;
+}
+
+
+/* Additional CSS for the third block for mobile responsiveness */
+@media only screen and (max-width: 600px) {
+    .reg-support-cards {
+      display: block; /* Change display to block for stacking on smaller screens */
+      margin-left: 0; /* Adjust margin for smaller screens */
+    }
+  
+    .reg-support-cards > div {
+      margin-right: 0; /* Remove right margin for smaller screens */
+      margin-bottom: 20px; /* Add bottom margin for spacing between cards */
+    }
+  
+    .reg-support-cards h1 {
+      font-size: 40px; /* Decrease font size for smaller screens */
+    }
+  }
+  

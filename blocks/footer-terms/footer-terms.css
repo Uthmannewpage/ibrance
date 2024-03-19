@@ -9,49 +9,51 @@ main > div {
     flex-wrap: wrap;
 }
 
-.test {
+.footer-terms {
     background-color: var(--background-color);
     margin: 16px;
+    display: inline-block; /* Add display: inline-block; */
 }
 
-.test > div {
+.footer-terms > div {
     display: flex;
     align-items: center;
-    margin-left: 270px; /* Add margin-bottom property */
+    margin-left: 10px; /* Add margin-bottom property */
 }
 
-.test > div > * {
+.footer-terms > div > * {
     margin-right: 16px;
 }
 
-.test > div > *:last-child {
+.footer-terms > div > *:last-child {
     margin-right: 0;
 }
 
-.test > * {
+.footer-terms > * {
     flex: 1;
 }
 
-.test > *:last-child {
+.footer-terms > *:last-child {
     margin-right: 0;
 }
 
-.test img {
-    width: 100%;
+.footer-terms img {
+    max-width: 150px; /* Set max-width to 150px */
+    max-height: 100px; /* Set max-height to 100px */
 }
 
-.test strong u {
+.footer-terms strong u {
     font-size: 14px; /* Set font size to 14 */
     color: #696869; /* Set font color to grey */
 }
 
-.test picture img {
+.footer-terms picture img {
     width: 150px; /* Set image width to 150 */
     height: 100px; /* Set image height to 100 */
 }
 
 @media (max-width: 899px) {
-    .test {
+    .footer-terms {
         margin-left: 0; /* Change to zero */
     }
 }

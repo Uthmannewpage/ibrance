@@ -154,7 +154,7 @@ signUpButton.style.textAlign = "center";
 signUpButton.style.borderRadius = "20px";
 
 signUpButton.addEventListener("click", function() {
-  window.location.href = "https://www.ibrance.com/registration";
+  window.location.href = "http://localhost:3000/registration";
 });
 
 

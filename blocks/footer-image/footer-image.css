@@ -9,51 +9,49 @@ main > div {
     flex-wrap: wrap;
 }
 
-.test1 {
+.footer-image {
     background-color: var(--background-color);
     margin: 16px;
-    display: inline-block; /* Add display: inline-block; */
 }
 
-.test1 > div {
+.footer-image > div {
     display: flex;
     align-items: center;
-    margin-left: 10px; /* Add margin-bottom property */
+    margin-left: 270px; /* Add margin-bottom property */
 }
 
-.test1 > div > * {
+.footer-image > div > * {
     margin-right: 16px;
 }
 
-.test1 > div > *:last-child {
+.footer-image > div > *:last-child {
     margin-right: 0;
 }
 
-.test1 > * {
+.footer-image > * {
     flex: 1;
 }
 
-.test1 > *:last-child {
+.footer-image > *:last-child {
     margin-right: 0;
 }
 
-.test1 img {
-    max-width: 150px; /* Set max-width to 150px */
-    max-height: 100px; /* Set max-height to 100px */
+.footer-image img {
+    width: 100%;
 }
 
-.test1 strong u {
+.footer-image strong u {
     font-size: 14px; /* Set font size to 14 */
     color: #696869; /* Set font color to grey */
 }
 
-.test1 picture img {
+.footer-image picture img {
     width: 150px; /* Set image width to 150 */
     height: 100px; /* Set image height to 100 */
 }
 
 @media (max-width: 899px) {
-    .test1 {
+    .footer-image {
         margin-left: 0; /* Change to zero */
     }
 }

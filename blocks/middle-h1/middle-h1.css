@@ -1,7 +1,7 @@
 .middle-h1 {
     text-align: left; /* Align text to the left */
     margin-left: -230px; /* Move the entire block 10px to the left */
-    margin-left: 200px;
+    margin-left: 15%;
     font-size: 45px; /* Set font size to 25px */
     color: purple; /* Set text color to purple */
     font-weight: bold;

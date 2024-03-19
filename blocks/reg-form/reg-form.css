@@ -1,0 +1,112 @@
+.reg-form {
+    margin-left: 200px;
+}
+
+
+.reg-form h2 {
+    color: #430098;
+  }
+  
+  .reg-form p {
+    font-size: 20px;
+  }
+  
+  .reg-form .box {
+
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+        display: block;
+  }
+  
+ /* Style for form groups */
+.form-group {
+    margin-bottom: 10px; /* Add spacing between form groups */
+  }
+  
+  /* Style for labels */
+  label {
+    display: block; /* Make labels block-level */
+    margin-bottom: 5px; /* Add some spacing between labels */
+  }
+  
+  /* Style for purple lines */
+  .purple-line {
+    border-bottom: 2px solid #430098; /* Add purple border-bottom */
+    margin-bottom: 10px; /* Add spacing after the line */
+    height: 2px; /* Set line height */
+    width: 100%; /* Set line width */
+  }
+  
+  /* Additional CSS for the fifth block for mobile responsiveness */
+@media only screen and (max-width: 600px) {
+    .reg-form {
+      margin-left: 0; /* Adjust margin for smaller screens */
+    }
+  
+    .reg-form h2 {
+      font-size: 30px; /* Decrease font size for smaller screens */
+      color: #430098; /* Retain color */
+    }
+  
+    .reg-form p {
+      font-size: 16px; /* Decrease font size for smaller screens */
+    }
+  
+    .reg-form .box {
+      width: 80px; /* Decrease box width for smaller screens */
+      height: 80px; /* Decrease box height for smaller screens */
+      margin: 5px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Style for form groups */
+    .form-group {
+      margin-bottom: 5px; /* Decrease spacing between form groups for smaller screens */
+    }
+  
+    /* Style for labels */
+    label {
+      margin-bottom: 3px; /* Decrease spacing between labels for smaller screens */
+    }
+  
+    /* Style for purple lines */
+    .purple-line {
+      margin-bottom: 5px; /* Decrease spacing after the line for smaller screens */
+    }
+  }
+  .reg-form input[type="text"] {
+    border: none;
+    border-bottom: 4px solid rgb(174, 174, 174); /* Initially purple */
+    margin-bottom: 7%;
+    width: 100%;
+    outline: none; /* Remove default focus outline */
+    transition: border-bottom-color 0.3s; /* Smooth transition for underline color */
+    font-size: 20px; 
+  }
+  
+  .reg-form input[type="text"]:focus {
+    border-bottom-color: #430098; /* Purple underline when focused */
+  }
+
+  /* CSS for styling the input elements with full-width purple underline */
+
+
+/* Additional styles for better alignment */
+.reg-form label {
+  display: block; /* Ensure labels are displayed in block */
+  margin-bottom: 5px; /* Add some space between label and input */
+}
+
+
+.reg-form button {
+  display: block; /* Ensure button is displayed in block */
+  width: 40%; /* Make button full width */
+  padding: 10px; /* Add padding */
+  font-size: 18px; /* Increase font size */
+  background-color: #430098; /* Set background color to purple */
+  color: white; /* Set text color to white */
+  border: none; /* Remove border */
+  border-radius: 20px; /* Add border radius for rounded edges */
+  cursor: pointer; /* Add pointer cursor */
+}

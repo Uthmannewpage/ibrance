@@ -1,5 +1,5 @@
 .tab-block {
-  margin-left: 300px;
+  margin-left: 15%;
   width: 1150px;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .tab-block > div:first-child > div {
-  width: 500px;
+  width: 50%;
   height: 50px;
   padding: 20px;
   cursor: pointer;
@@ -183,7 +183,7 @@
   }
 
   .tab-block > div:first-child > div {
-    width: 100%;
+    width: 90%;
   }
 
   .tab-block > div:nth-child(2) > div {

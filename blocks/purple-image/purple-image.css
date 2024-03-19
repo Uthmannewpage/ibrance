@@ -2,7 +2,7 @@
     display: flex;
     background-color: #ece5f4; /* Light purple background */
     padding: 20px;
-    margin-left: 250px;
+    margin-left: 15%;
     margin-right: -200px;
 }
 
@@ -64,6 +64,7 @@
     }
 
     .purple-image a {
-        margin: 10px 0; /* Adjusted margin for smaller screens */
+        margin: 10px 0px !important;
+        font-size: 15px !important;
     }
 }

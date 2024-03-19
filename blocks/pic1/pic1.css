@@ -6,8 +6,9 @@
 
 @media (max-width: 899px) {
     .pic1 {
-        margin-left: 13%;
-        margin-right: 0;
+    
+        margin-left: 0%;
         width: 100%;
+        align-items: center;
     }
 }

@@ -1,0 +1,21 @@
+.reg-support {
+  margin-left: 200px;
+}
+
+#support-resources {
+    color: #430098;
+    font-size: 40px;
+  }
+  
+
+/* Additional CSS for the second block for mobile responsiveness */
+@media only screen and (max-width: 600px) {
+  .reg-support {
+    margin-left: 0; /* Adjust margin for smaller screens */
+    text-align: left; /* Center align content */
+  }
+
+  #support-resources {
+    font-size: 30px; /* Decrease font size for smaller screens */
+  }
+}
