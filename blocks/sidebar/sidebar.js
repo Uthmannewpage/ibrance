@@ -1,15 +1,15 @@
 // Create the button element
 var button = document.createElement('button');
 button.id = 'sidebarToggle';
+button.setAttribute('aria-label', 'Toggle Sidebar'); // Set aria-label for accessibility
 
 // Remove the background color of the button
 button.style.backgroundColor = 'transparent'; // Set the background color to transparent
 button.style.width = '50px';
 button.style.height = '50px';
 button.style.position = 'fixed';
-button.style.top = '10px'; // Distance from the top edge
-button.style.right = '10px'; // Distance from the right edge
-
+button.style.top = '100px'; // Distance from the top edge
+button.style.right = '0'; // Distance from the right edge
 
 var lineTop = document.createElement('div');
 lineTop.style.backgroundColor = 'purple'; // Set the color of the lines to purple
@@ -30,7 +30,6 @@ lineMiddle.style.top = '20px';
 lineMiddle.style.left = '10px'; 
 button.appendChild(lineMiddle);
 
-
 var lineBottom = document.createElement('div');
 lineBottom.style.backgroundColor = 'purple'; 
 lineBottom.style.width = '30px';
@@ -42,11 +41,9 @@ button.appendChild(lineBottom);
 
 document.body.appendChild(button);
 
-
 document.getElementById('sidebarToggle').addEventListener('click', function() {
   document.querySelector('.sidebar').classList.toggle('active');
 });
-
 
 
 const h1Element = document.getElementById("for-newly-diagnosed");
@@ -180,12 +177,15 @@ var faScript = document.createElement("script");
 faScript.src = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js";
 document.head.appendChild(faScript);
 
-function createSocialButton(iconClass, color, url) {
+function createSocialButton(iconClass, color, url, label) {
   var button = document.createElement("button");
   var icon = document.createElement("i");
   icon.classList.add("fab", iconClass);
   button.appendChild(icon);
   
+  // Add aria-label for accessibility
+  button.setAttribute("aria-label", label);
+
   button.style.width = "50px";
   button.style.height = "50px";
   button.style.backgroundColor = "white";
@@ -219,16 +219,20 @@ var tdElements = document.querySelectorAll('td');
 tdElements.forEach(function(td) {
   var text = td.textContent.trim().toLowerCase();
   var button;
+  var ariaLabel; // Variable to hold the aria-label for each button
 
   switch(text) {
     case "facebook":
-      button = createSocialButton("fa-facebook-f", "#430098", "https://www.facebook.com/PfizerIbrance/");
+      ariaLabel = "Visit Pfizer Ibrance Facebook page";
+      button = createSocialButton("fa-facebook-f", "#430098", "https://www.facebook.com/PfizerIbrance/", ariaLabel);
       break;
     case "instagram":
-      button = createSocialButton("fa-instagram", "#C13584", "https://www.instagram.com/ibrance_palbociclib/");
+      ariaLabel = "Visit Ibrance Palbociclib Instagram page";
+      button = createSocialButton("fa-instagram", "#C13584", "https://www.instagram.com/ibrance_palbociclib/", ariaLabel);
       break;
     case "twitter":
-      button = createSocialButton("fa-twitter", "#1DA1F2", "https://twitter.com/PfizerIbrance");
+      ariaLabel = "Visit Pfizer Ibrance Twitter page";
+      button = createSocialButton("fa-twitter", "#1DA1F2", "https://twitter.com/PfizerIbrance", ariaLabel);
       break;
     default:
       return;
@@ -238,19 +242,6 @@ tdElements.forEach(function(td) {
   td.appendChild(button);
 });
 
-
-// Find all <td> elements
-var tdElements = document.querySelectorAll('td');
-
-tdElements.forEach(function(td) {
-
-  if (td.textContent.trim() === "twitter") {
-    // Clear the content of the <td>
-    td.innerHTML = "";
-    
-    td.appendChild(twitterButton);
-  }
-});
 
 
 function createPopup(title, content) {

@@ -2,8 +2,8 @@
     display: flex;
     background-color: #ece5f4; /* Light purple background */
     padding: 20px;
-    margin-left: 15%;
-    margin-right: -200px;
+    margin-left: 30%;
+    margin-right: -15%;
 }
 
 .purple-image > div {

@@ -1,6 +1,7 @@
 .columns1 > div {
     display: flex;
-    margin-left: 15%;
+    margin-left: 40%;
+    margin-right: -30%;
     flex-direction: column;
 }
 

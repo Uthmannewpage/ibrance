@@ -34,7 +34,7 @@
     }
 
     .middle-text p a {
-        color: limegreen; /* Set text color to lime green */
+        color: rgb(20, 156, 20); /* Set text color to lime green */
         text-decoration: underline; /* Add default underline */
     }
 }
