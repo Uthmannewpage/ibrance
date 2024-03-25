@@ -12,7 +12,8 @@ main > div {
 .footer-terms {
     background-color: var(--background-color);
     margin: 16px;
-    display: inline-block; /* Add display: inline-block; */
+    margin-left: 7%;
+    display: inline-block; 
 }
 
 .footer-terms > div {

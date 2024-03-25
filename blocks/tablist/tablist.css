@@ -1,25 +1,25 @@
 .tablist {
     display: flex;
-    align-items: stretch; /* Stretch items to fill the container vertically */
-    flex-direction: row; /* Display items side by side */
+    align-items: stretch; 
+    flex-direction: row; 
     margin-left: 200px;
 }
 
 .tablist > div > div {
-    flex-grow: 1; /* Take up equal space */
+    flex-grow: 1; 
     height: 50px;
     padding: 20px;
     cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 0px;
     margin-left: -1px;
-    font-size: 20px; /* Reduce font size */
+    font-size: 20px; 
     transition: background-color 0.3s, color 0.3s;
     display: inline-block;
     position: relative;
-    background-color: #f0f0f0; /* Greyish background color */
-    color: #333; /* Dark grey font color */
-    text-align: center; /* Align text to center */
+    background-color: #f0f0f0; 
+    color: #333; 
+    text-align: center; 
 }
 
 .tablist > div > div:hover {
@@ -43,7 +43,7 @@
 }
 
 .tablist div > div {
-    width: 100%; /* Change to 100% */
+    width: 100%; 
 }
 
 .tablist div {
@@ -74,6 +74,7 @@
         font-size: 13px; 
     }
 }
+
 .tablist{
     display: none;
 }

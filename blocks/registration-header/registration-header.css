@@ -1,115 +1,101 @@
-
 .registration-header {
-    position: relative;
-    margin-left: 13%;
-}.registration-header img {
-    width: 100%;
-    height: auto;
+  position: relative;
+  margin-left: 13%;
+}
+.registration-header img {
+  width: 100%;
+  height: auto;
 }
 
 .registration-header h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-100%, -600%);
-    color: #430098; /* Text color */
-    font-size: 60px;
-    font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -600%);
+  color: #430098;
+  font-size: 60px;
+  font-weight: bold;
 }
 
 .registration-header h1 {
-    color: #430098;
+  color: #430098;
 }
-
 
 .registration-header h3 {
-    font-size: 20px;
-    font-weight: lighter;
-    margin-left: 3%;
-    margin-bottom: 1%;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-left: 3%;
+  margin-bottom: 1%;
 }
 
-
-/* Style for the radio buttons */
 .radio-circle {
-    transform: scale(2); /* Make the radio buttons larger */
-    margin-right: 10px; /* Adjust margin to separate from text */
+  transform: scale(2);
+  margin-right: 10px;
 }
 
-/* Style for the text inside h3 elements */
 .registration-header h3 {
-    display: inline-block; /* Display the h3 elements and radio buttons on the same line */
+  display: inline-block;
 }
 
-/* Style for the radio button color */
 .radio-circle:checked {
-    background-color: purple; /* Change the background color to purple when selected */
-    border-color: purple; /* Change the border color to purple when selected */
+  background-color: purple;
+  border-color: purple;
 }
 
-/* Style for the dot inside the radio button */
 .radio-circle:checked::before {
-    background-color: purple !important; /* Change the dot color to purple when selected */
-}
-/* Style for the radio buttons */
-.radio-circle {
-    transform: scale(2); /* Make the radio buttons larger */
-    margin-right: 10px; /* Adjust margin to separate from text */
+  background-color: purple !important;
 }
 
-/* Style for the dot inside the radio button */
+.radio-circle {
+  transform: scale(2);
+  margin-right: 10px;
+}
+
 .radio-circle::before {
-    background-color: var(--dot-color, initial); /* Set the dot color */
+  background-color: var(--dot-color, initial);
 }
 
 .registration-header strong {
-    color: red;
-  }
-  
+  color: red;
+}
 
-  /* Additional CSS for mobile responsiveness */
 @media only screen and (max-width: 600px) {
-    .registration-header {
-      margin-left: 0; /* Adjust margin for smaller screens */
-      text-align: center; /* Center align content */
-    }
-  
-    .registration-header img {
-      width: 100%; /* Make image fill the container */
-      height: auto; /* Maintain aspect ratio */
-    }
-  
-    .registration-header h2 {
-      position: static; /* Reset positioning */
-      transform: none; /* Reset transform */
-      font-size: 36px; /* Decrease font size for smaller screens */
-    }
-  
-    .registration-header h3 {
-      font-size: 16px; /* Decrease font size for smaller screens */
-      margin-left: 0; /* Reset margin */
-      margin-bottom: 5px; /* Adjust margin for smaller screens */
-    }
-  
-    /* Adjust radio button size for smaller screens */
-    .radio-circle {
-      transform: scale(1.5);
-    }
-  
-    /* Adjust margin for radio buttons on smaller screens */
-    .registration-header h3 .radio-circle {
-      margin-right: 5px;
-    }
-  
-    /* Style for the dot inside the radio button on smaller screens */
-    .radio-circle::before {
-      background-color: purple !important;
-    }
-  
-    /* Additional style for strong elements on smaller screens */
-    .registration-header strong {
-      color: red; /* Retain color */
-      font-size: 14px; /* Decrease font size for smaller screens */
-    }
+  .registration-header {
+      margin-left: 0;
+      text-align: center;
   }
-  
+
+  .registration-header img {
+      width: 100%;
+      height: auto;
+  }
+
+  .registration-header h2 {
+      position: static;
+      transform: none;
+      font-size: 36px;
+  }
+
+  .registration-header h3 {
+      font-size: 16px;
+      margin-left: 0;
+      margin-bottom: 5px;
+  }
+
+  .radio-circle {
+      transform: scale(1.5);
+  }
+
+  .registration-header h3 .radio-circle {
+      margin-right: 5px;
+  }
+
+  .radio-circle::before {
+      background-color: purple !important;
+  }
+
+  .registration-header strong {
+      color: red;
+      font-size: 14px;
+  }
+}

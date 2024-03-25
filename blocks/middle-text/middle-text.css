@@ -1,41 +1,40 @@
 .middle-text {
-    text-align: left; /* Align text to the left */
-    margin-left: -230px; /* Move the entire block 10px to the left */
+    text-align: left;
+    margin-left: -230px;
     margin-left: 200px;
 }
 
 .middle-text p {
-    font-size: 24px; /* Set font size to 18px */
-    color: rgb(79, 78, 78); /* Set text color to gray */
+    font-size: 24px;
+    color: rgb(79, 78, 78);
 }
 
 .middle-text p a {
-    color: limegreen; /* Set text color to lime green */
-    text-decoration: underline; /* Add default underline */
+    color: limegreen;
+    text-decoration: underline;
 }
 
 @media (max-width: 599px) {
     .middle-h1 {
-        text-align: center; /* Align text to the center */
-        font-size: 25px; /* Adjusted font size for smaller screens */
-        color: purple; /* Set text color to purple */
+        text-align: center;
+        font-size: 25px;
+        color: purple;
         font-weight: bold;
-        margin-left: 0; /* Reset left margin */
+        margin-left: 0;
     }
 
     .middle-text {
-        text-align: center; /* Align text to the center */
-        margin-left: 0; /* Reset margin for smaller screens */
+        text-align: center;
+        margin-left: 0;
     }
 
     .middle-text p {
-        font-size: 18px; /* Adjusted font size for smaller screens */
-        color: rgb(79, 78, 78); /* Set text color to gray */
+        font-size: 18px;
+        color: rgb(79, 78, 78);
     }
 
     .middle-text p a {
-        color: rgb(20, 156, 20); /* Set text color to lime green */
-        text-decoration: underline; /* Add default underline */
+        color: rgb(20, 156, 20);
+        text-decoration: underline;
     }
 }
-

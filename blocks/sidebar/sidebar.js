@@ -223,14 +223,17 @@ tdElements.forEach(function(td) {
 
   switch(text) {
     case "facebook":
+      button.setAttribute('aria-label', 'Facebook');
       ariaLabel = "Visit Pfizer Ibrance Facebook page";
       button = createSocialButton("fa-facebook-f", "#430098", "https://www.facebook.com/PfizerIbrance/", ariaLabel);
       break;
     case "instagram":
+      button.setAttribute('aria-label', 'Instagram');
       ariaLabel = "Visit Ibrance Palbociclib Instagram page";
       button = createSocialButton("fa-instagram", "#C13584", "https://www.instagram.com/ibrance_palbociclib/", ariaLabel);
       break;
     case "twitter":
+      button.setAttribute('aria-label', 'Twitter');
       ariaLabel = "Visit Pfizer Ibrance Twitter page";
       button = createSocialButton("fa-twitter", "#1DA1F2", "https://twitter.com/PfizerIbrance", ariaLabel);
       break;
