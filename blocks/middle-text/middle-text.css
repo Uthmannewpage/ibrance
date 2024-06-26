@@ -1,7 +1,8 @@
 .middle-text {
     text-align: left;
-    margin-left: -230px;
-    margin-left: 200px;
+    width: 115%;
+
+
 }
 
 .middle-text p {
@@ -9,32 +10,45 @@
     color: rgb(79, 78, 78);
 }
 
-.middle-text p a {
-    color: limegreen;
+.middle-text a {
+    color: #6ca100;
     text-decoration: underline;
+    transition: color 0.3s, background-color 0.3s; 
+}
+
+.middle-text a:hover {
+    color: white; /* Changing text color on hover */
+    background-color: #6ca100; /* Changing background color on hover */
 }
 
 @media (max-width: 599px) {
-    .middle-h1 {
-        text-align: center;
-        font-size: 25px;
-        color: purple;
-        font-weight: bold;
-        margin-left: 0;
-    }
-
     .middle-text {
-        text-align: center;
-        margin-left: 0;
+        width:115%;
+        text-align: left;
+        margin-left: -15%;
     }
+    
 
-    .middle-text p {
-        font-size: 18px;
+    .middle-text div> p {
+        font-size: 11px;
         color: rgb(79, 78, 78);
     }
 
     .middle-text p a {
         color: rgb(20, 156, 20);
         text-decoration: underline;
+    }
+
+    .middle-text p a:hover {
+        color: white; /* Changing text color on hover */
+        background-color: limegreen; /* Changing background color on hover */
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1367px) {
+    .middle-text{
+        width: 80%;
+        margin-left: 21%;
+    
     }
 }

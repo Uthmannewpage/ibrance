@@ -1,21 +1,106 @@
+/* General styling */
 footer {
   padding: 2rem;
   background-color: var(--light-color);
   font-size: var(--body-font-size-s);
-  margin-left: 200px;
 }
 
+/* Container for footer content */
 footer .footer {
   max-width: 1200px;
   margin: auto;
 }
 
+/* Reset default margin for paragraphs */
 footer .footer p {
   margin: 0;
 }
 
-@media (max-width: 899px) {
-    footer {
-        margin-left: 0; /* Change to zero */
-    }
+/* New CSS for top section */
+.row1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styling for footer links */
+.footer ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+}
+
+.footer ul li {
+  margin-right: 20px; /* Adjust spacing between list items */
+}
+
+.footer ul ul {
+  margin-top: 10px; /* Adjust spacing between nested lists */
+}
+
+/* Styling for footer links */
+.footer a {
+  color: #783384;
+  text-decoration: underline;
+}
+
+/* Remove underline on hover and change color */
+.footer a:hover {
+  color: darkorchid;
+  text-decoration: none;
+}
+
+/* Language switcher styling */
+.language-switcher-locale-url {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.language-switcher-locale-url li {
+  display: inline-block;
+}
+
+.language-link {
+  color: #783384;
+  text-decoration: underline;
+}
+
+/* Remove underline on hover and change color for language links */
+.language-link:hover {
+  color: darkorchid;
+  text-decoration: none;
+}
+
+/* Adjust margin for the last child of footer items */
+.footer-items:last-child {
+  margin-right: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  footer {
+    width: 82%;
+    margin-left: 0;
+   
+  }
+  .row1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer ul {
+    flex-direction: column;
+  }
+  .footer ul li {
+    margin-right: 0;
+    margin-bottom: 10px; /* Add space between list items on mobile */
+  }
+  .footer ul ul {
+    margin-top: 5px; /* Adjust spacing between nested lists for mobile */
+  }
+  .language-switcher-locale-url li {
+    display: block;
+    margin-bottom: 5px; /* Add space between language links on mobile */
+  }
 }

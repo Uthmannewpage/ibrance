@@ -2,8 +2,7 @@
     display: flex;
     background-color: #ece5f4;
     padding: 20px;
-    margin-left: 30%;
-    margin-right: -15%;
+    margin-right: -12%;
 }
 
 .purple-image > div {
@@ -13,8 +12,8 @@
 }
 
 .purple-image img {
-    width: 50px;
-    height: 64px;
+    width: 150%;
+    height: auto;
     margin-top: 15px;
 }
 
@@ -28,30 +27,32 @@
     text-align: left;
 }
 
-.purple-image a {
+.purple-image Button {
     display: inline-block;
     background-color: #430098 !important;
-    margin-left: 200px !important;
+    margin-left: 70% !important;
     margin-top: 20px !important;
     color: white;
+    width: 200%;
     padding: 10px 20px;
     text-decoration: none;
     text-align: center !important;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.purple-image a:hover {
-    background-color: white !important;
-    color: #430098;
+.purple-image Button:hover {
+    background-color: #ffffff !important;
+    color: #430098 ;
 }
 
 @media (max-width: 599px) {
     .purple-image {
+        width: 119%;
         flex-direction: column;
         align-items: center;
         padding: 10px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: -21%;
+        margin-top: -40%;
     }
     
     .purple-image > div {
@@ -66,5 +67,25 @@
     .purple-image a {
         margin: 10px 0px !important;
         font-size: 15px !important;
+    }
+    .purple-image Button {
+        margin: 20px auto !important;
+        width: 100% !important;
+        font-size: 18px !important;
+    }
+
+}
+
+@media (min-width: 1025px) and (max-width: 1367px) {
+    .purple-image{
+        width: 79%;
+        margin-left: 20%;
+    
+    }
+    .purple-image Button {
+        margin: 20px auto !important;
+        width: 100% !important;
+        font-size: 18px !important;
+        margin-left: -29%;
     }
 }

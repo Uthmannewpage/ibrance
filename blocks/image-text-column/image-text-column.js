@@ -1,5 +1,5 @@
 
-var aTags = document.querySelectorAll('.purple-image a');
+var aTags = document.querySelectorAll('.image-text-column a');
 
 // Iterate over each <a> tag
 aTags.forEach(function(aTag) {
@@ -16,23 +16,37 @@ aTags.forEach(function(aTag) {
   aTag.parentNode.replaceChild(img, aTag);
 });
 
+// Create a new button element
+// Create a new button element
 var helpButton = document.createElement("button");
 
 // Add the "button" class to the button element
 helpButton.classList.add("button");
 
 // Set button text
-helpButton.textContent = "Hear their stories";
+helpButton.textContent = "Get Support";
 
 // Add event listener for button click
 helpButton.addEventListener("click", function() {
   // Redirect to a specific URL when the button is clicked
-  window.location.href = "https://www.ibrance.com/mbc-stories/";
+  window.location.href = "https://www.example.com/get-help";
 });
 
 // Find the parent element of the h4 with id "get-help"
-var getHelpHeader = document.getElementById("hear-their-stories");
+var getHelpHeader = document.getElementById("get-help");
 var parentDiv = getHelpHeader.parentNode;
 
 // Replace the h4 element with the new button
 parentDiv.replaceChild(helpButton, getHelpHeader);
+
+
+// Add alt attribute to the image element inside the link
+document.addEventListener("DOMContentLoaded", function() {
+  const imageLink = document.querySelector('.image-text-column a[href$=".png"], .image-text-column a[href$=".jpg"], .image-text-column a[href$=".jpeg"], .image-text-column a[href$=".gif"], .image-text-column a[href$=".svg"]');
+  if (imageLink) {
+      const imageElement = imageLink.querySelector('img');
+      if (imageElement && !imageElement.hasAttribute('alt')) {
+          imageElement.setAttribute('alt', 'percentige image');
+      }
+  }
+});

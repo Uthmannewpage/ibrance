@@ -10,6 +10,9 @@ export default function decorate(block) {
   const allHeads = header.querySelectorAll('div');
   const allPanels = content.querySelectorAll('div');
 
+
+  
+
   allHeads.forEach((div, index) => {
     div.classList.add('tab');
 
@@ -52,3 +55,21 @@ export default function decorate(block) {
   const child2Container = document.querySelector('.child-2');
   child2Container.parentNode.insertBefore(Container1, child2Container.nextSibling);
 }
+
+// Find all <a> tags within the tab-block div
+var aTags = document.querySelectorAll('div.tab-block a');
+
+// Iterate over each <a> tag
+aTags.forEach(function(aTag) {
+    // Get the URL from the href attribute of the <a> tag
+    var imageUrl = aTag.getAttribute('href');
+
+    // Create an image element
+    var img = document.createElement('img');
+
+    // Set the src attribute of the image to the URL
+    img.src = imageUrl;
+
+    // Replace the <a> tag with the image
+    aTag.parentNode.replaceChild(img, aTag);
+});

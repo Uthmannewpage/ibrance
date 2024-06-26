@@ -61,7 +61,7 @@
     color: #430098;
 }
 
-/* Add hover effect */
+
 .reg-support-cards h1:hover::before {
     border-color: #8e44ad;
 }
@@ -71,20 +71,20 @@
 }
 
 
-/* Additional CSS for the third block for mobile responsiveness */
+
 @media only screen and (max-width: 600px) {
     .reg-support-cards {
-      display: block; /* Change display to block for stacking on smaller screens */
-      margin-left: 0; /* Adjust margin for smaller screens */
+      display: block; 
+      margin-left: 0; 
     }
   
     .reg-support-cards > div {
-      margin-right: 0; /* Remove right margin for smaller screens */
-      margin-bottom: 20px; /* Add bottom margin for spacing between cards */
+      margin-right: 0; 
+      margin-bottom: 20px;
     }
   
     .reg-support-cards h1 {
-      font-size: 40px; /* Decrease font size for smaller screens */
+      font-size: 40px; 
     }
   }
   

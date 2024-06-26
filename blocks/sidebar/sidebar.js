@@ -1,28 +1,25 @@
-// Create the button element
+
 var button = document.createElement('button');
 button.id = 'sidebarToggle';
-button.setAttribute('aria-label', 'Toggle Sidebar'); // Set aria-label for accessibility
-
-// Remove the background color of the button
-button.style.backgroundColor = 'transparent'; // Set the background color to transparent
+button.setAttribute('aria-label', 'Toggle Sidebar'); 
+button.style.backgroundColor = 'transparent';
 button.style.width = '50px';
 button.style.height = '50px';
 button.style.position = 'fixed';
-button.style.top = '100px'; // Distance from the top edge
-button.style.right = '0'; // Distance from the right edge
+button.style.top = '100px';
+button.style.right = '0';
 
 var lineTop = document.createElement('div');
-lineTop.style.backgroundColor = 'purple'; // Set the color of the lines to purple
+lineTop.style.backgroundColor = '#430098'; 
 lineTop.style.width = '30px';
 lineTop.style.height = '5px';
 lineTop.style.position = 'absolute';
-lineTop.style.top = '10px'; // Adjust position for each line
-lineTop.style.left = '10px'; // Set the left position
-button.appendChild(lineTop); // Append each line to the button
+lineTop.style.top = '10px'; 
+lineTop.style.left = '10px'; 
+button.appendChild(lineTop);
 
-// Create ::before pseudo-element to represent the middle line
 var lineMiddle = document.createElement('div');
-lineMiddle.style.backgroundColor = 'purple'; // Set the color of the lines to purple
+lineMiddle.style.backgroundColor = '#430098'; 
 lineMiddle.style.width = '30px';
 lineMiddle.style.height = '5px';
 lineMiddle.style.position = 'absolute';
@@ -31,7 +28,7 @@ lineMiddle.style.left = '10px';
 button.appendChild(lineMiddle);
 
 var lineBottom = document.createElement('div');
-lineBottom.style.backgroundColor = 'purple'; 
+lineBottom.style.backgroundColor = '#430098'; 
 lineBottom.style.width = '30px';
 lineBottom.style.height = '5px';
 lineBottom.style.position = 'absolute';
@@ -44,6 +41,23 @@ document.body.appendChild(button);
 document.getElementById('sidebarToggle').addEventListener('click', function() {
   document.querySelector('.sidebar').classList.toggle('active');
 });
+
+// Function to handle sidebar state based on window size
+function handleResize() {
+  if (window.innerWidth > 600) {
+    // Desktop: Ensure sidebar is open
+    document.querySelector('.sidebar').classList.add('active');
+  } else {
+    // Mobile: Ensure sidebar is closed initially
+    document.querySelector('.sidebar').classList.remove('active');
+  }
+}
+
+// Handle resize on page load
+handleResize();
+
+// Handle resize on window resize
+window.addEventListener('resize', handleResize);
 
 
 const h1Element = document.getElementById("for-newly-diagnosed");
@@ -142,9 +156,9 @@ var signUpButton = document.createElement("button");
 
 signUpButton.textContent = "Sign up";
 
-signUpButton.style.width = "280px";
+signUpButton.style.width = "100%";
 signUpButton.style.backgroundColor = "white";
-signUpButton.style.border = "2px solid #430098";
+signUpButton.style.border = "4px solid #430098";
 signUpButton.style.color = "#430098";
 signUpButton.style.cursor = "pointer";
 signUpButton.style.textAlign = "center"; 
@@ -183,7 +197,7 @@ function createSocialButton(iconClass, color, url, label) {
   icon.classList.add("fab", iconClass);
   button.appendChild(icon);
   
-  // Add aria-label for accessibility
+
   button.setAttribute("aria-label", label);
 
   button.style.width = "50px";
@@ -194,8 +208,8 @@ function createSocialButton(iconClass, color, url, label) {
   button.style.cursor = "pointer";
   button.style.textAlign = "center";
   button.style.borderRadius = "50%";
-  button.style.padding = "0"; // Remove padding
-  button.style.margin = "0"; // Remove margin
+  button.style.padding = "0"; 
+  button.style.margin = "0"; 
 
   button.addEventListener("click", function() {
     window.location.href = url;
@@ -218,9 +232,9 @@ var tdElements = document.querySelectorAll('td');
 
 tdElements.forEach(function(td) {
   var text = td.textContent.trim().toLowerCase();
-  var button;
-  var ariaLabel; // Variable to hold the aria-label for each button
-
+  var button = document.createElement("button"); // Define button here
+  var ariaLabel; 
+  
   switch(text) {
     case "facebook":
       button.setAttribute('aria-label', 'Facebook');
@@ -240,6 +254,7 @@ tdElements.forEach(function(td) {
     default:
       return;
   }
+  
 
   td.innerHTML = "";
   td.appendChild(button);
@@ -256,8 +271,8 @@ function createPopup(title, content) {
   overlay.style.left = "0";
   overlay.style.width = "100%";
   overlay.style.height = "100%";
-  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // semi-transparent black color
-  overlay.style.zIndex = "9998"; // lower z-index than the popup
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+  overlay.style.zIndex = "9998"; 
   
   // Create popup
   var popup = document.createElement("div");
@@ -331,18 +346,18 @@ document.getElementById("patient-information").addEventListener("click", functio
   // Get the HTML content as a string
   var contentHTML = contentDiv.innerHTML;
   
-  createPopup(title, contentHTML); // Pass the HTML content to the createPopup function
+  createPopup(title, contentHTML);
 });
 
 
 document.getElementById("use").addEventListener("click", function() {
-  var title = ("Indications"); // Get the title from the Full Prescribing Information element
-  var contentDiv = document.querySelector(".sidebar > div:nth-child(20)"); // Get the hidden content div
+  var title = ("Indications"); 
+  var contentDiv = document.querySelector(".sidebar > div:nth-child(20)"); 
   
   // Get the HTML content as a string
   var contentHTML = contentDiv.innerHTML;
   
-  createPopup(title, contentHTML); // Pass the HTML content to the createPopup function
+  createPopup(title, contentHTML);
 });
 
 document.getElementById("important-safety-information").addEventListener("click", function() {
@@ -355,4 +370,27 @@ document.getElementById("healthcare-professionals").addEventListener("click", fu
 
 document.getElementById("español").addEventListener("click", function() {
   createPopup("Español", "Welcome, you have clicked Español.");
+});
+
+
+var aTags = document.querySelectorAll('.sidebar a');
+
+aTags.forEach(function(aTag) {
+
+  var imageUrl = aTag.getAttribute('href');
+
+  // Extract the image URL from the larger URL
+  var matches = imageUrl.match(/(https?:\/\/.*?\.(?:jpeg|jpg|gif|png))/i);
+  if (matches && matches.length > 0) {
+    imageUrl = matches[0];
+  }
+
+  if (imageUrl.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+    var img = document.createElement('img');
+    img.src = imageUrl;
+    img.style.maxWidth = "300px";
+  
+
+    aTag.parentNode.replaceChild(img, aTag);
+  }
 });

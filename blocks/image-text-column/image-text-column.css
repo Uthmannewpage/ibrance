@@ -1,0 +1,109 @@
+/* styles.css */
+
+.image-text-column {
+    display: flex;
+    flex-direction: row;
+    gap: 0%;
+    justify-content: center;
+    align-items: center;
+    width: 115%;
+}
+
+.image-text-column > div {
+    flex-grow: 1;
+}
+
+.image-text-column img {
+    width: 500px;
+}
+
+.image-text-column a {
+    margin: 0;
+}
+
+.image-text-column h1 {
+    font-size: 45px;
+    color: #430098; 
+}
+
+.button {
+    width: 30%;
+    background-color: white;
+    border: 3px solid #430098;
+    color: #430098;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 100%; /* Adjust font size for mobile */
+    padding: 10px 0; /* Adjust padding for mobile */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.button:hover {
+    background-color: #430098;
+    color: white;
+}
+
+@media (max-width: 699px) {
+    .image-text-column {
+        width: 100%;
+        flex-direction: column;
+        align-items: center; 
+        margin-left: -10%;
+    }
+
+    .image-text-column > div {
+        flex-grow: 0;
+        width: 100%;
+    }
+
+    .button {
+        display: block;
+        font-size: 100%;
+        margin: 0 auto;
+        width: 60%; /* Adjust width for better visibility on smaller screens */
+        margin-bottom: 10%;
+    }
+
+    .image-text-column img {
+        width: 70%; /* Adjust image width */
+        max-width: none;
+        max-height: none;
+    }
+
+    .image-text-column h1 {
+        font-size: 30px; /* Adjust heading font size */
+        text-align: left;
+    }
+
+    .image-text-column p {
+        text-align: left; /* Center paragraph text */
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1367px) {
+    .image-text-column{
+        width: 80%;
+        margin-left: 20%;
+    
+    }
+    .image-text-column h1 {
+        font-size: 30px; /* Adjust heading font size */
+        text-align: left;
+        margin-left: 2%;
+    }
+
+    .image-text-column p {
+        text-align: left; /* Center paragraph text */
+        font-size: 18px;
+        margin-left: 2%;
+    }
+}
+    .button {
+        display: block;
+        font-size: 100%;
+        margin: 0 auto;
+        width: 60%; 
+        margin-bottom: 10%;
+    }

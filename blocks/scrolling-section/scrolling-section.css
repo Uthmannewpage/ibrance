@@ -1,0 +1,176 @@
+/* CSS for styling the sections */
+.scrolling-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #ffffff;
+  max-height: 100vh;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+
+}
+
+.scrolling-section > div {
+  width: 90%;
+  margin: 20px 0;
+}
+
+/* Style the title section */
+.scrolling-section > div:first-child {
+  display: flex; /* Ensure flex layout */
+  justify-content: space-between; /* Spacing between title and buttons */
+  align-items: center; /* Align items vertically */
+  background-color: #7349a8;
+  color: white;
+  padding: 0px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0; /* Remove margin to attach to the text sections */
+}
+
+.scrolling-section > div:first-child > div > h1 {
+  margin-top: -1%;
+  margin-left: 10%;
+  margin-right: -10%;
+  color: white !important;
+  font-size: 20px; /* Adjusted size */
+}
+
+/* CSS for styling the buttons */
+.toggle-button {
+  background-color: white; /* Button background */
+  color: #7349a8; /* Text color */
+  border: 2px solid #7349a8; /* Border color */
+  border-radius: 10px; /* Rounded edges */
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: -10%;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+  outline: none; /* Remove default outline */
+}
+
+.toggle-button:hover {
+  background-color: #7349a8; /* Background color on hover */
+  color: white; /* Text color on hover */
+}
+
+.toggle-button:focus {
+  background-color: #7349a8; /* Background color on focus */
+  color: white; /* Text color on focus */
+  display: hidden;
+}
+
+/* Adjust layout to display buttons side by side */
+.scrolling-section > div:first-child > button {
+  margin-left: 10px; /* Add spacing between buttons */
+}
+
+/* Adjust max-height to prevent covering entire page */
+.scrolling-section[data-state='expanded'] {
+  max-height: 100vh; /* Adjust as needed */
+  overflow-y: auto; /* Add scroll if content exceeds max height */
+}
+
+/* Adjust collapsed state */
+.scrolling-section[data-state='collapsed'] {
+  max-height: 20vh; /* Set the collapsed height */
+  overflow-y: hidden; /* Hide overflow content when collapsed */
+}
+
+.scrolling-section {
+  box-sizing: border-box;
+  position: fixed;
+  left: 22%;
+  bottom: 0;
+  width: 78%;
+  overflow-y: auto; /* Ensure scrollbar always appears if needed */
+  padding-bottom: 1rem; /* Adjust as needed */
+  background-color: #ffffff;
+  z-index: 2;
+}
+
+/* Styles for smaller screens */
+@media (min-width: 1390px) and (max-width: 1550px) { /* Adjust the breakpoint as needed */
+  .scrolling-section {
+    left: calc(20% + 7%);
+    width: calc(80% - 6rem); /* Adjust as needed */
+  }
+}
+
+/* Styles for smaller screens */
+@media (min-width: 1000px) and (max-width: 1525px) { /* Adjust the breakpoint as needed */
+  .scrolling-section {
+    left: calc(20% + 11%);
+    width: calc(80% - 6rem); /* Adjust as needed */
+  }
+}
+
+/* Additional Padding for the first title */
+.scrolling-section > div > div:first-child > h1 {
+  padding-top: 1rem; /* Adjust as needed */
+}
+
+/* Side by side layout for the second div */
+.scrolling-section > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between; /* Ensure space between children */
+  width: 100%;
+  background-color: #f2f2f2; /* Restore parent background color */
+  padding: 0;
+  margin: 0;
+}
+
+.scrolling-section > div:nth-child(2) > div {
+  background-color: white; /* Set background to white */
+  border-radius: 0 0 10px 10px; /* Rounded edges at the bottom */
+  padding: 20px;
+  width: 48%; /* Adjust width to fit within parent */
+  margin: 10px 1%; /* Add margin for space between sections */
+  box-sizing: border-box; /* Ensure padding and border are included in width and height */
+}
+
+
+
+
+
+@media (max-width: 699px) {
+  .scrolling-section {
+    width: 98%;
+    left: 0;
+    padding-bottom: 1rem;
+  }
+
+  .scrolling-section > div:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .scrolling-section > div:first-child > div > h1 {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 16px; /* Adjusted size for mobile */
+  }
+
+  .toggle-button {
+    margin-top: 10px;
+    margin-left: 0;
+    padding: 8px 16px;
+    font-size: 18px;
+  }
+
+  .scrolling-section > div:nth-child(2) {
+    flex-direction: column;
+  }
+
+  .scrolling-section > div:nth-child(2) > div {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+  }
+}

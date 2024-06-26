@@ -1,18 +1,49 @@
-.middle-h1 {
-    text-align: left; /* Align text to the left */
-    margin-left: -230px; /* Move the entire block 10px to the left */
-    margin-left: 15%;
-    font-size: 45px; /* Set font size to 25px */
-    color: purple; /* Set text color to purple */
+.middle-h1 h1 {
+    text-align: left;
+
+    font-size: 55px; 
+    color: #430098; 
     font-weight: bold;
+}
+
+.middle-h1 h3 {
+    font-size: 28px;
+    color: #430098; /* Apply the same color as h1 */
 }
 
 @media (max-width: 599px) {
     .middle-h1 {
-        text-align: center; /* Align text to the center */
-        font-size: 25px; /* Adjusted font size for smaller screens */
-        color: purple; /* Set text color to purple */
+       
+        margin-top: -30%;
+        
+     
+    }
+
+    .middle-h1 h1 {
+        width:100%;
+        margin-left: -14%;
+        text-align: left; 
+        font-size: 30px;
+        color: #430098; /* Change color for smaller screens */
         font-weight: bold;
-        margin-left: 0; /* Reset left margin */
+     
+    }
+
+    .middle-h1 h3 {
+        font-size: 16px; /* Adjust h3 font size for smaller screens */
+        color: #430098; /* Apply the same color as h1 */
+        text-align: left; 
+        width:100%;
+        margin-left: -14%;
+       
+    }
+
+
+}
+@media (min-width: 1025px) and (max-width: 1367px) {
+    .middle-h1{
+        width: 80%;
+        margin-left: 20%;
+    
     }
 }
