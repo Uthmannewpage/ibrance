@@ -1,0 +1,63 @@
+/* styles.css */
+
+/* Existing styles */
+
+.image-image-column > div {
+    display: flex;
+    flex-direction: column;
+    width: 110%;
+}
+
+.image-image-column img {
+    max-width: 150%;
+    max-height: 100%;
+}
+
+.image-image-column > div > div {
+    order: 1;
+}
+
+.image-image-column > div > .columns-img-col {
+    order: 0;
+}
+
+.image-image-column > div > .columns-img-col img {
+    display: block;
+}
+
+@media (min-width: 900px) {
+    .image-image-column > div {
+        width: 74%;
+        margin-left: 15%;
+        flex-direction: row;
+        gap: 10%; 
+    }
+
+    .image-image-column > div > div {
+        flex-grow: 1;
+        order: unset;
+    }
+}
+
+@media (max-width: 599px) {
+    .image-image-column {
+        width: 110%; /* Adjusted width for better compatibility with iPad screens */
+        margin-left: -17%; /* Removed negative margin */
+      
+    }
+    .image-image-column > div {
+        margin-left: 0; 
+    }
+    .image-image-column img {
+        max-width: 100%; /* Adjusted maximum width */
+        max-height: 100%;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1367px) {
+    .image-image-column{
+        width: 90%;
+        margin-left: 8%;
+    
+    }
+}

@@ -1,0 +1,69 @@
+.custom-banner {
+    background-color: #f9eeff; /* very light purple background */
+    display: flex;
+    justify-content: space-between; /* distribute items evenly */
+    align-items: flex-start; /* align items at the start of the cross axis */
+    padding: 20px;
+    width: 115%;
+  }
+  
+  .custom-banner > div:nth-child(1) {
+    flex: 1;
+  }
+  
+  .custom-banner > div:nth-child(2) {
+    order: 1; /* Change the order of the second div */
+    flex: 1;
+  }
+  
+  h1 {
+    color: #430098; /* h1 color */
+    margin-bottom: 10px;
+    font-size: 45px;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+  
+  .custom-banner img {
+    max-width: 80%; /* maximum width */
+    height: auto; 
+    margin-left: 23%;
+    margin-bottom: -5%;
+  }
+
+  
+  .custom-banner u {
+    color: #6ca100;
+    background-image: none; 
+    text-decoration: underline !important;
+    transition: color 0.3s, background-color 0.3s;
+    cursor: pointer;
+}
+
+  .custom-banner u:hover {
+    color: white; /* Changing text color on hover */
+    background-color: #6ca100; /* Changing background color on hover */
+}
+@media screen and (max-width: 699px) {
+    .custom-banner {
+        flex-direction: column; /* Change to vertical layout */
+        align-items: center; /* Center align items */
+        width: 110%; /* Adjust width for mobile screens */
+        margin-left: -20%;
+    }
+
+    .custom-banner > div:nth-child(1),
+    .custom-banner > div:nth-child(2) {
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1367px) {
+  .custom-banner{
+      width: 78%;
+      margin-left: 20%;
+  
+  }
+}

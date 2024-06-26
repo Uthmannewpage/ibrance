@@ -121,3 +121,13 @@ async function loadPage() {
 }
 
 loadPage();
+
+function addPreconnectHint(origin) {
+  var link = document.createElement('link');
+  link.rel = 'preconnect';
+  link.href = origin;
+  document.head.appendChild(link);
+}
+
+
+addPreconnectHint('https://www.ibrance.com');

@@ -1,0 +1,185 @@
+.custom-tab {
+ 
+  width: 115%;
+}
+
+.custom-tab > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.custom-tab > div:first-child > div {
+  width: 50%;
+  height: 50px;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 0px;
+  margin-left: 2px;
+  font-size: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+  position: relative;
+  background-color: #e5e5e5;
+  color: #636363;
+  text-align: center;
+  font-weight: bold;
+}
+
+.custom-tab > div:first-child > div:hover {
+  background-color: #f5f5f5;
+  color: #7349a8;
+}
+
+.custom-tab > div:first-child > div.active {
+  background-color: #ccc;
+  color: #7349a8;
+}
+
+.custom-tab > div:first-child > div.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #430098;
+}
+
+.custom-tab > div:first-child > div::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.custom-tab > div:first-child > div.active::after {
+  background-color: #430098;
+}
+
+.custom-tab > div:nth-child(2) > div {
+  margin-top: -19px;
+  padding: 20px;
+}
+
+.custom-tab > div:nth-child(2) > div.active {
+  display: block;
+}
+
+.custom-tab > div:nth-child(2) > div {
+  display: none;
+}
+
+.custom-tab > div:nth-child(2) > div.active {
+  display: block;
+  background-color: #f0f0f0;
+}
+
+.custom-tab > div > div > h2 {
+  color: #7349a8;
+}
+
+#co-pay-assistance {
+  color: #430098;
+}
+
+.custom-tab > div > div > p,
+.custom-tab > div > div > ul > li {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.custom-tab > div > div > div > p {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.custom-tab > div > div > div > div > p {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.custom-tab > div:first-child > div > div {
+  display: flex;
+  align-items: center;
+}
+
+.custom-tab > div:first-child > div > div > picture {
+  margin-right: 20px;
+}
+
+
+
+
+
+
+.custom-tab img {
+  max-width: 70%; /* Adjust this value as needed */
+  height: auto;
+
+}
+.custom-tab img {
+  display: block;
+  margin: 0 auto; /* Align images in the middle */
+}
+
+.custom-tab > div:nth-child(2) > div p,
+.custom-tab > div:nth-child(2) > div ul li {
+  text-align: left; /* Align text to the left */
+}
+.custom-tab > div:nth-child(2) > div p {
+  font-size: 25px;
+}
+
+
+
+.custom-tab img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-tab {
+    margin-top: 10px;
+    width: 115%;
+    margin-left: -15%;
+  }
+
+  .custom-tab > div:first-child {
+    flex-direction: column;
+  }
+
+  .custom-tab > div:first-child > div {
+    width: 90%;
+  }
+
+  .custom-tab > div:nth-child(2) > div {
+    width: 90%;
+    margin-top: -10%;
+  }
+
+  .custom-tab > div > div > div {
+    display: block;
+    width: 100%;
+  }
+
+  .custom-tab > div > div > div > picture {
+    display: none;
+  }
+
+  .custom-tab > div > div > div > div {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1367px) {
+  .custom-tab{
+      width: 80%;
+      margin-left: 20%;
+  
+  }
+}

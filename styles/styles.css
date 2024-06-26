@@ -10,12 +10,12 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
+ :root {
   /* colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
   --background-color: white;
-  --light-color: #000000;
+  --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
 
@@ -40,18 +40,9 @@
   /* nav height */
   --nav-height: 64px;
 }
-body {
-  display: flex;
-}
 
-.sidebar {
-  width: 25%;
-  background-color: #f4f4f4;
-}
-
-.main-content {
-  width: 75%;
-  padding: 20px;
+.section.navbar-main.tab-block-container.nav-tools {
+  display: none;
 }
 
 @font-face {
@@ -201,6 +192,12 @@ main img {
 /* sections */
 main .section {
   padding: 64px 16px;
+  margin-left: 12%;
+  
+}
+
+footer {
+  margin-left: 10%;
 }
 
 @media (width >= 600px) {
@@ -216,29 +213,10 @@ main .section {
   }
 }
 
+
 /* section metadata */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
 }
 
-.sidebar {
-  width: 25%;
-  background-color: #f4f4f4;
-}
-
-.main-content {
-  width: 75%;
-  padding: 20px;
-}
-
-@media (max-width: 899px) {
-  .sidebar {
-    width: 100%; /* Change to 100% */
-    margin-bottom: 20px; /* Add margin-bottom */
-  }
-
-  .main-content {
-    width: 100%; /* Change to 100% */
-  }
-}
