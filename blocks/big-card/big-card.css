@@ -1,0 +1,52 @@
+
+.big-card {
+    background-color: #fff;
+    width: 130%; /* Adjust width as needed */
+    height:1000px;
+    margin-bottom: -63%;
+    margin-left: -20%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+    z-index: -1; /* Ensure it's above other elements */
+}
+
+#drug-interaction-calculator {
+    color: #00004e; 
+    text-align: center;
+}
+
+
+#paxlovid-nirmatrelvirritonavir {
+    color: #003fe2; 
+    font-size: 200%;
+    text-align: center;
+}
+#fill-in-the-fields-below-to-obtain-information-about-the-combination-with-paxlovid-nirmatrelvirritonavir {
+    color: #575757; 
+    text-align: center;
+    font-size: 120%;
+}
+.big-card > div:nth-child(1) h4:nth-child(3) {
+    color: #808080; 
+}
+@media (max-width: 767px) {
+    .big-card {
+        display: none;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1025px) {
+    .big-card {
+        width: 100%; /* Adjust width to better fit the iPad screen */
+        height: auto; /* Allow height to adjust based on content */
+        margin-bottom: 20px; /* Adjust bottom margin */
+        margin-left: -7%;
+        margin-right: auto;
+        z-index: 1; /* Maintain proper stacking context */
+    }
+
+    }
