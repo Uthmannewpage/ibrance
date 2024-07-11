@@ -1,10 +1,10 @@
 import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
 
-
 function createDiseaseButtons(container, diseases, onClickCallback, disableControlsCallback, query = '') {
+    container.classList.add('button-list-container'); 
     container.innerHTML = '';
     diseases.forEach((disease) => {
-        const button = createButton(disease.Disease, query);
+        const button = createButton(disease.Disease, 'disease-button', query);
         button.addEventListener("click", () => {
             onClickCallback(disease.Disease, disease.Medicine.split(', '), button, disease.Description.split(', '));
             disableControlsCallback();
@@ -14,11 +14,12 @@ function createDiseaseButtons(container, diseases, onClickCallback, disableContr
     container.scrollTop = 0;
 }
 
-
 function createMedicineButtons(container, medicines, descriptions, onClickCallback, disableControlsCallback, query = '') {
+    container.classList.add('button-list-container'); 
     container.innerHTML = '';
     medicines.forEach((medicine, index) => {
-        const button = createButton(medicine, query);
+        const button = createButton(medicine, 'medicine-button', query);
+        button.dataset.name = medicine; 
         button.addEventListener("click", () => {
             onClickCallback(medicine, button, descriptions[index]);
             disableControlsCallback();
@@ -28,16 +29,14 @@ function createMedicineButtons(container, medicines, descriptions, onClickCallba
     container.scrollTop = 0;
 }
 
-function createButton(text, query = '') {
+function createButton(text, buttonClass, query = '') {
     const button = document.createElement("button");
     button.textContent = text;
-    button.classList.add("disease-button");
+    button.classList.add(buttonClass);
     button.id = text.toLowerCase();
-
 
     return button;
 }
-
 
 function createSearchInput(container, placeholderText, onInputCallback) {
     const searchInput = document.createElement('input');
@@ -48,7 +47,6 @@ function createSearchInput(container, placeholderText, onInputCallback) {
     container.appendChild(searchInput);
     return searchInput;
 }
-
 
 function createSortDropdown(container, onChangeCallback) {
     const sortContainer = document.createElement('div');
@@ -84,7 +82,6 @@ function createSortDropdown(container, onChangeCallback) {
     return sortDropdown;
 }
 
-
 function sortItems(items, criteria) {
     return items.slice().sort((a, b) => {
         if (criteria === 'z-a') {
@@ -95,19 +92,6 @@ function sortItems(items, criteria) {
         return 0;
     });
 }
-
-
-function createSelectedItemsSection(container, sectionId) {
-    let selectedItemsSection = container.querySelector(`#${sectionId}`);
-    if (!selectedItemsSection) {
-        selectedItemsSection = document.createElement('div');
-        selectedItemsSection.classList.add('selected-items-section');
-        selectedItemsSection.id = sectionId;
-        container.appendChild(selectedItemsSection);
-    }
-    return selectedItemsSection;
-}
-
 
 function createSelectedItem(container, itemName, onDeleteCallback, isDisease = false) {
     const selectedItem = document.createElement('div');
@@ -153,7 +137,6 @@ function unmarkButtonAsSelected(button) {
     button.style.fontWeight = 'normal';
 }
 
-
 function getAllMedicines(diseases) {
     const allMedicines = new Set();
     diseases.forEach(disease => {
@@ -164,12 +147,11 @@ function getAllMedicines(diseases) {
     return Array.from(allMedicines);
 }
 
-
 const placeholders = await fetchPlaceholders(getMetadata("locale"));
 const { sNo } = placeholders;
 export default async function decorate() {
-    const leftCard = document.querySelector('.interactive-cards > div:nth-child(1)');
-    const rightCard = document.querySelector('.interactive-cards > div:nth-child(2)');
+    const leftCard = document.querySelector('.second-interactive-cards > div:nth-child(1)');
+    const rightCard = document.querySelector('.second-interactive-cards > div:nth-child(2)');
 
     const leftJsonLink = leftCard.querySelector('a[href$=".json"]');
     const rightJsonLink = rightCard.querySelector('a[href$=".json"]');
@@ -187,7 +169,7 @@ export default async function decorate() {
         diseasesContainer.id = 'diseases';
 
         let selectedDisease = null;
-        const selectedMedicines = {};
+        let selectedMedicine = null;
 
         const diseaseSearchInput = createSearchInput(leftCard, 'Search diseases...', (event) => {
             const query = event.target.value.toLowerCase();
@@ -217,7 +199,6 @@ export default async function decorate() {
 
         const allMedicines = getAllMedicines(diseases);
 
-        
         const allDescriptions = [];
         diseases.forEach(disease => {
             const medicines = disease.Medicine.split(',').map(med => med.trim());
@@ -226,11 +207,9 @@ export default async function decorate() {
             if (descriptions.length > 0) {
                 for (let i = 0; i < medicines.length; i++) {
                     const description = descriptions[i] || 'No description available';
-
                     allDescriptions.push(description);
                 }
             } else {
-             
                 medicines.forEach(med => {
                     console.log(`Medicine: ${med}, Description: No description available`);
                     allDescriptions.push('No description available');
@@ -259,7 +238,6 @@ export default async function decorate() {
         createDiseaseButtons(diseasesContainer, diseases, handleDiseaseSelection, disableDiseaseControls);
         createMedicineButtons(medicinesContainer, allMedicines, allDescriptions, handleMedicineSelection, enableMedicineControls);
 
-      
         const descriptionTextElement = document.querySelector('#description-text');
         const descriptionContainer = document.createElement('div');
         descriptionContainer.id = 'description-container';
@@ -273,7 +251,7 @@ export default async function decorate() {
         descriptionTextBox.rows = 56;
         descriptionTextBox.cols = 50;
         descriptionTextBox.placeholder = 'Description will appear here...';
-        descriptionTextBox.readOnly = true;
+        descriptionTextBox.readOnly = true; 
 
         descriptionContainer.appendChild(descriptionTextBox);
 
@@ -281,18 +259,17 @@ export default async function decorate() {
             descriptionTextElement.replaceWith(descriptionContainer);
         }
 
-        const selectedMedicinesSet = new Set();
-
         function handleDiseaseSelection(disease, medicines, button, descriptions) {
             if (selectedDisease !== disease) {
                 if (selectedDisease) {
                     const prevSelectedButton = diseasesContainer.querySelector(`.disease-button[data-name="${selectedDisease}"]`);
                     unmarkButtonAsSelected(prevSelectedButton);
+                    deleteSelectedMedicine();
                 }
-        
+
                 markButtonAsSelected(button);
                 selectedDisease = disease;
-        
+
                 createSelectedItem(selectedDiseasesSection, disease, () => {
                     unmarkButtonAsSelected(button);
                     selectedDisease = null;
@@ -300,72 +277,66 @@ export default async function decorate() {
                     enableDiseaseControls();
                     enableMedicineControls();
                 }, true).dataset.name = disease;
-        
-              
-                if (selectedMedicinesSet.size === 0) {
-                    createMedicineButtons(medicinesContainer, medicines, descriptions, (medicine, medicineButton, description) => {
-                        if (!selectedMedicinesSet.has(medicine)) {
-                            markButtonAsSelected(medicineButton);
-                            selectedMedicinesSet.add(medicine);
-                            selectedMedicines[disease] = selectedMedicines[disease] || [];
-                            selectedMedicines[disease].push(medicine);
-                            createSelectedItem(selectedMedicinesSection, medicine, () => {
-                                unmarkButtonAsSelected(medicineButton);
-                                selectedMedicinesSet.delete(medicine);
-                                selectedMedicines[disease].splice(selectedMedicines[disease].indexOf(medicine), 1);
-                                updateSelectedDiseases();
-                                enableMedicineControls();
-                            }).dataset.name = medicine;
-                            disableButtons(Array.from(medicinesContainer.querySelectorAll('.disease-button')));
-                        }
-                        descriptionTextBox.value = description; 
-                        descriptionTitle.classList.remove('no-result');
-                    }, disableMedicineControls);
-                }
+
+                createMedicineButtons(medicinesContainer, medicines, descriptions, (medicine, medicineButton, description) => {
+                    handleMedicineSelection(medicine, medicineButton, description);
+                }, enableMedicineControls);
+
                 disableDiseaseControls();
             }
         }
-        
+
         function handleMedicineSelection(medicine, button, description) {
-            if (!selectedDisease || !selectedMedicines[selectedDisease].includes(medicine)) {
-                if (!selectedMedicinesSet.has(medicine)) {
-                    markButtonAsSelected(button);
-                    selectedMedicinesSet.add(medicine);
-                    createSelectedItem(selectedMedicinesSection, medicine, () => {
-                        unmarkButtonAsSelected(button);
-                        selectedMedicinesSet.delete(medicine);
-                        enableButtons(Array.from(medicinesContainer.querySelectorAll('.disease-button')));
-                        Object.keys(selectedMedicines).forEach(disease => {
-                            selectedMedicines[disease] = selectedMedicines[disease].filter(med => med !== medicine);
-                        });
-                        updateSelectedDiseases();
-                        enableMedicineControls();
-                        enableMedicineButton(medicine); 
-                    }).dataset.name = medicine;
-                    disableButtons(Array.from(medicinesContainer.querySelectorAll('.disease-button')));
-                    disableMedicineControls();
-                }
-                descriptionTextBox.value = description; 
-                descriptionTitle.classList.remove('no-result'); 
-            } else {
-          
+            if (selectedMedicine) {
+                const prevSelectedButton = medicinesContainer.querySelector(`.medicine-button[data-name="${selectedMedicine}"]`);
+                unmarkButtonAsSelected(prevSelectedButton);
+
+                const selectedMedicineItem = selectedMedicinesSection.querySelector(`.selected-item[data-name="${selectedMedicine}"]`);
+                selectedMedicineItem?.remove();
             }
+
+            markButtonAsSelected(button);
+            selectedMedicine = medicine;
+
+            createSelectedItem(selectedMedicinesSection, medicine, () => {
+                unmarkButtonAsSelected(button);
+                selectedMedicine = null;
+                updateSelectedDiseases();
+                enableMedicineControls();
+            }).dataset.name = medicine;
+
+            descriptionTextBox.value = description;
+            descriptionTitle.classList.remove('no-result');
+
+            disableDiseaseControls(); // Disable disease controls when a medicine is selected
         }
-        function enableMedicineButton(medicineName) {
-            const button = medicinesContainer.querySelector(`.disease-button[data-name="${medicineName}"]`);
-            if (button) {
-                button.disabled = false;
+
+        function deleteSelectedMedicine() {
+            if (selectedMedicine) {
+                const selectedMedicineItem = selectedMedicinesSection.querySelector(`.selected-item[data-name="${selectedMedicine}"]`);
+                selectedMedicineItem?.remove();
+
+                const selectedMedicineButton = medicinesContainer.querySelector(`.medicine-button[data-name="${selectedMedicine}"]`);
+                selectedMedicineButton?.classList.remove('selected');
+
+                selectedMedicine = null;
             }
         }
 
         function disableDiseaseControls() {
             diseaseSearchInput.disabled = true;
             diseaseSortDropdown.disabled = true;
+            Array.from(diseasesContainer.querySelectorAll('.disease-button')).forEach(button => {
+                button.disabled = true;
+            });
         }
 
         function enableDiseaseControls() {
             diseaseSearchInput.disabled = false;
             diseaseSortDropdown.disabled = false;
+            Array.from(diseasesContainer.querySelectorAll('.disease-button')).forEach(button => {
+                button.disabled = false;
+            });
         }
 
         function disableMedicineControls() {
@@ -379,76 +350,28 @@ export default async function decorate() {
         }
 
         function updateSelectedDiseases() {
-        
             Array.from(selectedDiseasesSection.querySelectorAll('.selected-item[data-type="disease"]')).forEach(diseaseItem => {
                 const diseaseName = diseaseItem.dataset.name;
                 if (selectedDisease !== diseaseName) {
                     diseaseItem.remove();
+                    deleteSelectedMedicine();
                 }
             });
-        
-           
-            while (selectedMedicinesSection.firstChild) {
-                selectedMedicinesSection.firstChild.remove();
-            }
-        
-           
-            if (selectedDisease && selectedMedicines[selectedDisease]) {
-                selectedMedicines[selectedDisease].forEach(medicine => {
-                    const medicineButton = medicinesContainer.querySelector(`.disease-button[data-name="${medicine}"]`);
-                    if (medicineButton) {
-                        const selectedItem = createSelectedItem(selectedMedicinesSection, medicine, () => {
-                            const index = selectedMedicines[selectedDisease].indexOf(medicine);
-                            if (index !== -1) {
-                                selectedMedicines[selectedDisease].splice(index, 1);
-                                updateSelectedDiseases();
-                                enableMedicineControls();
-                                enableMedicineButton(medicine);
-                            }
-                        });
-                        selectedItem.dataset.name = medicine;
-                        const deleteButton = document.createElement('button');
-                        deleteButton.classList.add('delete-button');
-                        deleteButton.textContent = 'Delete';
-                        deleteButton.addEventListener('click', () => {
-                            const index = selectedMedicines[selectedDisease].indexOf(medicine);
-                            if (index !== -1) {
-                                selectedMedicines[selectedDisease].splice(index, 1);
-                                selectedItem.remove(); 
-                                unmarkButtonAsSelected(medicineButton); 
-                                updateSelectedDiseases();
-                                enableMedicineControls(); 
-                                enableMedicineButton(medicine);
-                            }
-                        });
-                        selectedItem.appendChild(deleteButton);
-                    }
-                });
-            }
-        
-            
+
             enableMedicineControls();
             enableButtons(Array.from(medicinesContainer.querySelectorAll('.disease-button')));
-        
-          
+
             if (Array.from(selectedDiseasesSection.querySelectorAll('.selected-item[data-type="disease"]')).length === 0) {
                 selectedDisease = null;
                 enableDiseaseControls();
-                enableMedicineControls();
-                enableButtons(Array.from(medicinesContainer.querySelectorAll('.disease-button')));
             } else {
-               
-                Object.keys(selectedMedicines).forEach(disease => {
-                    if (!selectedDiseases.some(d => d.Disease === disease)) {
-                        selectedMedicines[disease].forEach(medicine => {
-                            const medicineButton = medicinesContainer.querySelector(`.disease-button[data-name="${medicine}"]`);
-                            if (medicineButton) {
-                                unmarkButtonAsSelected(medicineButton);
-                            }
-                        });
-                        selectedMedicines[disease] = [];
+                if (!selectedDisease && selectedMedicine) {
+                    const medicineButton = medicinesContainer.querySelector(`.medicine-button[data-name="${selectedMedicine}"]`);
+                    if (medicineButton) {
+                        unmarkButtonAsSelected(medicineButton);
                     }
-                });
+                    selectedMedicine = null;
+                }
             }
         }
     }
